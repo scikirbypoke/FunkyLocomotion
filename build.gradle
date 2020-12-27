@@ -49,7 +49,9 @@ dependencies {
     deobfCompile "cofh:CoFHCore:1.12.2-4.6.3.27:universal"
 
     compile "com.mod-buildcraft:buildcraft-api:7.99.24.7"
-    compile "appeng:appliedenergistics2:rv6-stable-7"
+    compile("appeng:appliedenergistics2:rv6-stable-7"){
+    exclude module: "jei_1.12.2"
+    }
 }
 
 

@@ -22,6 +22,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class BlockHelper {
@@ -29,8 +30,8 @@ public class BlockHelper {
 			MethodHandleUtils.getMethodHandleVirtual(Chunk.class, new String[] { "func_76615_h", "relightBlock" }, int.class, int.class, int.class);
 	private static final MethodHandle methodHandle_Chunk_propagateSkylightOcclusion =
 			MethodHandleUtils.getMethodHandleVirtual(Chunk.class, new String[] { "func_76595_e", "propagateSkylightOcclusion" }, int.class, int.class);
-	private static final Field field_Chunk_precipitationHeightMap = ReflectionHelper.findField(Chunk.class, "field_76638_b", "precipitationHeightMap");
-
+	//private static final Field field_Chunk_precipitationHeightMap = ReflectionHelper.findField(Chunk.class, "field_76638_b", "precipitationHeightMap");
+	private static final Field field_Chunk_precipitationHeightMap = ObfuscationReflectionHelper.findField(Chunk.class, "precipitationHeightMap");
 	@SuppressWarnings("deprecation")
 	public static boolean silentSetBlock(Chunk chunk, BlockPos pos, Block block, int meta) {
 		int dx = pos.getX() & 15;
