@@ -147,7 +147,7 @@ public class EntityAirShip extends Entity implements IEntityAdditionalSpawnData,
 
 		if (entryHashMap.isEmpty()) return;
 
-		for (Chunk chunk : (Iterable<Chunk>) entryHashMap.keySet().stream().map(world::getChunkFromBlockCoords).distinct()::iterator) {
+		for (Chunk chunk : (Iterable<Chunk>) entryHashMap.keySet().stream().map(world::getChunk).distinct()::iterator) {
 
 			List<NextTickListEntry> ticks = world.getPendingBlockUpdates(chunk, false);
 			if (ticks != null) {
@@ -175,7 +175,7 @@ public class EntityAirShip extends Entity implements IEntityAdditionalSpawnData,
 
 
 		for (BlockPos pos : entryHashMap.keySet()) {
-			BlockHelper.silentClear(world.getChunkFromBlockCoords(pos), pos);
+			BlockHelper.silentClear(world.getChunk(pos), pos);
 			FLNetwork.sendToAllWatchingChunk(world, pos, new MessageClearTile(pos));
 			world.removeTileEntity(pos);
 		}

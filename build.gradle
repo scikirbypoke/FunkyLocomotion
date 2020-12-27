@@ -14,19 +14,26 @@ group= "com.rwtema.funkylocomotion" // http://maven.apache.org/guides/mini/guide
 archivesBaseName = "funky-locomotion-1.12.2"
 
 minecraft {
-    version = "1.12.2-14.23.1.2581"
+    version = "1.12.2-14.23.5.2847"
     runDir = "run"
-    mappings = "snapshot_20171003"
+    mappings = "stable_39"
    makeObfSourceJar = false
 }
 
 repositories {
-  maven {
-    url "http://dvs1.progwml6.com/files/maven"
-  }
+    maven {
+        url "http://dvs1.progwml6.com/files/maven"
+    }
     maven {
         name = "buildcraft"
         url = "https://mod-buildcraft.com/maven"
+    }
+    maven { // CTM
+	url "http://maven.tterrag.com/"
+    }
+    maven {
+        name = "CodeChicken"
+        url = "http://chickenbones.net/maven"
     }
 }
 
@@ -35,9 +42,14 @@ minecraft {
 }
 
 dependencies {
-    deobfCompile "mezz.jei:jei_1.12.2:4.8.0.111"
-    compile "com.mod-buildcraft:buildcraft-api:7.99.15"
-    compile "appeng:appliedenergistics2:rv5-stable-8"
+
+    deobfCompile "mezz.jei:jei_1.12.2:4.16.1.301"
+    deobfCompile "team.chisel.ctm:CTM:MC1.12.2-1.0.2.31"
+    deobfCompile "cofh:RedstoneFlux:1.12-2.1.0.7:universal"
+    deobfCompile "cofh:CoFHCore:1.12.2-4.6.3.27:universal"
+
+    compile "com.mod-buildcraft:buildcraft-api:7.99.24.7"
+    compile "appeng:appliedenergistics2:rv6-stable-7"
 }
 
 

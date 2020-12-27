@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class BlockFrame extends Block implements IStickyBlock {
 	public BlockFrame() {
 		super(Material.ROCK);
-		this.setUnlocalizedName("funkylocomotion:frame");
+		this.setTranslationKey("funkylocomotion:frame");
 		this.setHardness(1);
 	}
 

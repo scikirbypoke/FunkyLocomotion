@@ -53,21 +53,21 @@ public abstract class AirshipClientControls {
 		@Override
 		public void control(EntityAirShip entityAirShip) {
 			if (rise.isKeyDown()) {
-				entityAirShip.velocity = entityAirShip.velocity.addVector(0, RISE_SPEED, 0);
+				entityAirShip.velocity = entityAirShip.velocity.add(0, RISE_SPEED, 0);
 			}
 			if (fall.isKeyDown()) {
-				entityAirShip.velocity = entityAirShip.velocity.addVector(0, -RISE_SPEED, 0);
+				entityAirShip.velocity = entityAirShip.velocity.add(0, -RISE_SPEED, 0);
 			}
 			if (turn_left.isKeyDown()) {
-				entityAirShip.rotation = entityAirShip.rotation.addVector(TURN_SPEED, 0, 0);
+				entityAirShip.rotation = entityAirShip.rotation.add(TURN_SPEED, 0, 0);
 			}
 			if (turn_right.isKeyDown()) {
-				entityAirShip.rotation = entityAirShip.rotation.addVector(-TURN_SPEED, 0, 0);
+				entityAirShip.rotation = entityAirShip.rotation.add(-TURN_SPEED, 0, 0);
 			}
 
 			if (thrust.isKeyDown()) {
 				double x = -entityAirShip.rotation.x;
-				entityAirShip.velocity = entityAirShip.velocity.addVector(
+				entityAirShip.velocity = entityAirShip.velocity.add(
 						Math.cos(x* EntityAirShip.PI_DIV) * FORWARD_SPEED, 0, Math.sin(x* EntityAirShip.PI_DIV) * FORWARD_SPEED
 				);
 			}
@@ -76,7 +76,7 @@ public abstract class AirshipClientControls {
 				double x = -entityAirShip.rotation.x;
 //				double m = Math.min(entityAirShip.velocity.distanceTo(Vec3d.ZERO), FORWARD_SPEED);
 				double m= FORWARD_SPEED;
-				entityAirShip.velocity = entityAirShip.velocity.addVector(
+				entityAirShip.velocity = entityAirShip.velocity.add(
 						-Math.cos(x * EntityAirShip.PI_DIV) * m, 0, -Math.sin(x * EntityAirShip.PI_DIV) * m
 				);
 			}

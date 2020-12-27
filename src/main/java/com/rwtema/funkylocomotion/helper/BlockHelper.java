@@ -85,7 +85,7 @@ public class BlockHelper {
 		int i1 = (pos.getZ() & 15) << 4 | (pos.getX() & 15);
 
 
-		Chunk chunk = world.getChunkFromBlockCoords(pos);
+		Chunk chunk = world.getChunk(pos);
 
 		try
 		{
